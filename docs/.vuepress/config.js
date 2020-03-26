@@ -1,5 +1,5 @@
 module.exports = {
-  "base":"/shinuye-blog/",
+  "base":"/shinuye-site/",
   "title": "Shinuye Site",
   "description": "",
   "dest": "dist",
