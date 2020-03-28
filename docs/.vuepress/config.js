@@ -1,5 +1,5 @@
 module.exports = {
-  "base":"/shinuye-site/",
+  "base": "/shinuye-site/",
   "title": "Shinuye Site",
   "description": "",
   "dest": "dist",
@@ -67,7 +67,8 @@ module.exports = {
     "author": "shinuye",
     "authorAvatar": "/avatar.png",
     "record": "NULL",
-    "startYear": "2020"
+    "startYear": "2020",
+    "sidebarDepth": 2
   },
   "markdown": {
     "lineNumbers": true
