@@ -32,7 +32,7 @@ module.exports = {
         "link": "/timeline/",
         "icon": "reco-date"
       },
-      { "text": 'GitHub', "link": 'https://github.com/shinuyeim/shinuye-blog', "icon": 'reco-github' },
+      { "text": 'GitHub', "link": 'https://github.com/shinuyeim/shinuye-site', "icon": 'reco-github' },
     ],
     "type": "blog",
     "blogConfig": {
