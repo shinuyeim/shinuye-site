@@ -1,14 +1,14 @@
 module.exports = {
   "base": "/shinuye-site/",
   "title": "Shinuye Site",
-  "description": "",
+  "description": "明明是个强人，天生一副熊样",
   "dest": "dist",
   "head": [
     [
       "link",
       {
         "rel": "icon",
-        "href": "/favicon.ico"
+        "href": "/favicon5.ico"
       }
     ],
     [
@@ -59,13 +59,13 @@ module.exports = {
         "link": "https://vuepress-theme-reco.recoluan.com"
       }
     ],
-    "logo": "/logo.png",
+    "logo": "/logo2.png",
     "search": true,
     "searchMaxSuggestions": 10,
     "sidebar": "auto",
     "lastUpdated": "Last Updated",
     "author": "shinuye",
-    "authorAvatar": "/avatar.png",
+    "authorAvatar": "/avatar1.png",
     "record": "NULL",
     "startYear": "2020",
     "sidebarDepth": 2
