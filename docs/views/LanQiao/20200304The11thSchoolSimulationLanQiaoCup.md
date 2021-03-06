@@ -141,3 +141,134 @@ int main(){
 }
 
 ```
+
+## 6. 递增三元组
+### 问题描述 
+【问题描述】<br>在数列 a[1], a[2], ..., a[n] 中，如果对于下标 i, j, k 满足 0&lt;i&lt;j&lt;k&lt;n+1 且 a[i]&lt;a[j]&lt;a[k]，则称 a[i], a[j], a[k] 为一组递增三元组，a[j]为递增三元组的中心。<br>给定一个数列，请问数列中有多少个元素可能是递增三元组的中心。<br>【输入格式】<br>输入的第一行包含一个整数 n。<br>第二行包含 n 个整数 a[1], a[2], ..., a[n]，相邻的整数间用空格分隔，表示给定的数列。<br>【输出格式】<br>输出一行包含一个整数，表示答案。<br>【样例输入】<br>5<br>1 2 5 3 5<br>【样例输出】<br>2<br>【样例说明】<br>a[2] 和 a[4] 可能是三元组的中心。<br>【评测用例规模与约定】<br>对于 50% 的评测用例，2 &lt;= n &lt;= 100，0 &lt;= 数列中的数 &lt;= 1000。<br>对于所有评测用例，2 &lt;= n &lt;= 1000，0 &lt;= 数列中的数 &lt;= 10000。<br><br>
+
+### 思路
+本题有规定评测用例规模，对于 50% 的用例 2 &lt;= n &lt;= 100，0 &lt;= 数列中的数 &lt;= 1000。则证明如果用暴力法，最多得到一半的分数。如果实在没有思路的话可以用暴力法。暴力法需要三重循环，如果不用暴力法的话，就需要一些技巧。
+
+### 源代码
+*** 
+**暴力法(三重循环)**
+```C
+#include <iostream>
+#include <algorithm>
+using namespace std;
+int a[1005];
+int b[1005];
+int main()
+{
+	int n, ans = 0;//计数
+	int ind = 1;//用于存放符合条件的三元组中心的下标
+	cin >> n;
+	for (int i = 1; i <= n; i++) cin >> a[i];
+
+	for (int i = 1; i <= n - 2; i++)
+	{
+		for (int j = i + 1; j <= n - 1; j++)
+		{
+			for (int k = j + 1; k <= n; k++)
+			{
+				//如果满足题意，则将三元组中心的下标存入数组中
+				if (a[i] < a[j] && a[j] < a[k])
+				{
+					b[ind++] = j;
+				}
+			}
+		}
+	}
+	
+	//对存放入数组中的不同下标进行计数
+	sort(b, b + ind);
+	for (int i = 1; i < ind; i++)
+	{
+		if (b[i] != b[i - 1]) ans++;
+	}
+	cout << ans;
+	return 0;
+}
+
+```
+*** 
+**双重循环**
+```C
+#include <iostream>
+using namespace std; 
+const int N = 1005;
+int n, p[N], ans;
+bool ok(int x) {
+	bool ok = false;    //初始化 ok 的值
+	for (int i = x - 1; i >= 1; i--) {
+		if (p[i] < p[x]) {       //判断 x 前面是否存在小于p[x]的的元素 
+			ok = true; break;    //若存在，ok=true,退出循环，因为只要找到一个是小于 x 的就行，不用一直循环到p数组的第一个元素 
+		}
+	}
+	if (!ok) return false;       //判断 x 前面是否有比p[x]小的元素，如果没有则直接返回false,证明没有递增三元组 
+	for (int i = x + 1; i <= n; i++) {  
+		if (p[x] < p[i]) return true;  //判断 x 后面是否有大于p[x]的元素 
+	}
+	return false;
+}
+int main() {
+ 	cin >> n;
+ 	for (int i = 1; i <= n; i++) {
+		cin >> p[i];        //数据的输入，下标从 1 开始 
+	}
+	for (int i = 1; i <= n; i++) {
+		if (ok(i)) ans++;
+	}
+ 	cout << ans;    
+	return 0;
+}
+
+```
+
+## 7. 音节判断
+### 问题描述 
+【问题描述】<br>小明对类似于 hello 这种单词非常感兴趣，这种单词可以正好分为四段，第一段由一个或多个辅音字母组成，第二段由一个或多个元音字母组成，第三段由一个或多个辅音字母组成，第四段由一个或多个元音字母组成。<br>给定一个单词，请判断这个单词是否也是这种单词，如果是请输出yes，否则请输出no。<br>元音字母包括 a, e, i, o, u，共五个，其他均为辅音字母。<br>【输入格式】<br>输入一行，包含一个单词，单词中只包含小写英文字母。<br>【输出格式】<br>输出答案，或者为yes，或者为no。<br>【样例输入】<br>lanqiao<br>【样例输出】<br>yes<br>【样例输入】<br>world<br>【样例输出】<br>no<br>【评测用例规模与约定】<br>对于所有评测用例，单词中的字母个数不超过100。<br><br>
+
+### 思路
+结构为辅音元音辅音元音的单词输出 yes ,否则输出 no ,则可以一个一个的判断。
+
+### 源代码
+```C
+#include <bits/stdc++.h>
+using namespace std;
+
+bool ok(char c){
+	if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u')
+		return true;
+	return false;
+}
+
+int main(){
+	string str;
+	int step = 0;
+	
+	cin >> str;
+	
+	for(int i = 0;i < str.size();i++){
+		if(step == 0){
+			if(!ok(str[i])) step = 1; //判断第一段是否为辅音,如果是辅音则step = 1，是元音的话则继续判断下一个字符 
+		}
+		if(step == 1){
+			if(ok(str[i])) step = 2;  //判断第二段是否为元音,如果是元音就step = 2, 是辅音的话则判断下一个字符 
+		}
+		if(step == 2){
+			if(!ok(str[i])) step = 3; //判断第三段是否为辅音,如果是辅音则step = 1，是元音的话则继续判断下一个字符 
+		}
+		if(step = 3){
+			if(ok(str[i])) step = 4;  //判断第四段是否为辅音,如果是辅音则step = 1，是元音的话则继续判断下一个字符 
+		}	
+	}
+	if(step == 4)
+		cout << "yes" <<endl;
+	else
+		cout << "no" <<endl;
+	
+	return 0;
+}
+
+```
