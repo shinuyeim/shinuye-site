@@ -1,11 +1,11 @@
 ---
-title: 力扣|x的平方根
+title: x的平方根
 date: 2020-07-28
 tags:
- - 算法
- - Java
+ - 简单
+ - 力扣
 categories:
- - 算法
+ - 算法笔记
 ---
 
 ## 题目描述

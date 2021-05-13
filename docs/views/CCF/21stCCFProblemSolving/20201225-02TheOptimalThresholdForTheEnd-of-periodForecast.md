@@ -2,10 +2,10 @@
 title: 期末预测之最佳阈值
 date: 2020-12-25
 tags:
- - 算法
- - C
+ - 中等
+ - CCF
 categories:
- -  CCF
+ - 竞赛真题
 ---
 
 

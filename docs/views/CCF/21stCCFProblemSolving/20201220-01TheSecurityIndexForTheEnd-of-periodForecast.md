@@ -2,10 +2,10 @@
 title: 期末预测之安全指数
 date: 2020-12-20
 tags:
- - 算法
- - C
+ - 简单
+ - CCF
 categories:
- -  CCF
+ - 竞赛真题
 ---
 
 

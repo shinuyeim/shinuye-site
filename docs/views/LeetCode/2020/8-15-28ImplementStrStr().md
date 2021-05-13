@@ -1,15 +1,14 @@
 ---
-title: 力扣|实现 strStr()
+title: 实现 strStr()
 date: 2020-08-15
 tags:
- - 算法
- - Java
+ - 简单
+ - 力扣
 categories:
- -  算法
+ - 算法笔记
 ---
 
-
-# 28实现 strStr()
+## 实现 strStr()
 
 实现 [^strStr()] 函数。
 
