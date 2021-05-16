@@ -35,8 +35,11 @@ Tips:
 ## 代码
 ```c
 int cmp(void *_a, void *_b) {
-    int a = *(int *)_a, b = *(int *)_b;
-    return a - b;
+    int* pa = (int*)a;
+    int* pb = (int*)b;
+    int num1 = *pa;
+    int num2 = *pb;
+    return num1 - num2;
 }
 
 int* intersection(int* nums1, int nums1Size, int* nums2, int nums2Size, int* returnSize) {
